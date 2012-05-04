@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>{{ blog_name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ blog_name }}">
+    <meta name="description" content="{{ blog_description }}">
     <meta name="author" content="{{ blog_author }}">
+
+    <link rel="alternate" type="application/xml" title="{{ blog_name }} RSS Feed" href="{% url feed %}" />
 
     <!-- Le styles -->
     <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -50,6 +52,7 @@
               {% if blog_author_email %}
                 <li><a href="mailto:{{ blog_author_email }}">Email</a></li>
               {% endif %}
+              <li><a href="{% url feed %}">RSS</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

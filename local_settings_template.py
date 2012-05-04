@@ -13,7 +13,8 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
-BLOG_NAME = "Just another JAB blog"
+BLOG_NAME = "JAB default blog"
+BLOG_DESCRIPTION = "Just another JAB blog"
 BLOG_AUTHOR = "Joe Blogs"
 BLOG_AUTHOR_EMAIL = "someone@example.com"   # Make blank if you don't want it
 BLOG_AUTHOR_TWITTER = "a_twitter_id"        # Make blank if you don't want it

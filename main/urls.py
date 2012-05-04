@@ -4,6 +4,7 @@ from django.views.generic.simple import direct_to_template
 from django.views.generic.create_update import create_object
 from django.views.generic.list_detail import object_detail
 
+from jab.main.feeds import LatestEntriesFeed
 from jab.main.models import Post
 
 urlpatterns = patterns("",
@@ -27,6 +28,11 @@ urlpatterns = patterns("",
             "template_object_name": "post"
         },
         name="view_post"
+    ),
+    url(
+        r'^feed/$',
+        LatestEntriesFeed(),
+        name="feed"
     ),
     url(
         r"^about/$",
