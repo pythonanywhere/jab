@@ -7,6 +7,7 @@ from django.views.generic.list_detail import object_detail
 from jab.main.feeds import LatestEntriesFeed
 from jab.main.models import Post
 
+
 urlpatterns = patterns("",
     url(
         r"^$",
@@ -14,7 +15,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "posts": lambda: Post.objects.all().filter(show_in_list_and_rss=True).order_by("-publication_date"),
+                "posts": lambda: Post.PUBLISHED_POSTS.filter(show_in_list_and_rss=True),
             }
         },
         name="main_page"

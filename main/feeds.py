@@ -24,7 +24,7 @@ class LatestEntriesFeed(Feed):
         return settings.BLOG_AUTHOR
 
     def items(self):
-        return Post.objects.filter(show_in_list_and_rss=True).order_by('-publication_date')[:20]
+        return Post.PUBLISHED_POSTS.filter(show_in_list_and_rss=True)[:20]
 
     def item_title(self, item):
         return item.title
