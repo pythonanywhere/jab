@@ -13,7 +13,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "posts": lambda: Post.objects.all().order_by("-id")
+                "posts": lambda: Post.objects.all().order_by("-published")
             }
         },
         name="main_page"
