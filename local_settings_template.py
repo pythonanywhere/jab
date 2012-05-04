@@ -13,6 +13,11 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+# Make this unique (you can generate one at <http://www.miniwebtool.com/django-secret-key-generator/>),
+# and don't share it with anybody.
+SECRET_KEY = 'pv$ph5&*q3$flq14%dpb-liko=&%mhh_=%hhnc5$tz&153zg_@'
+
+
 BLOG_NAME = "JAB default blog"
 BLOG_DESCRIPTION = "Just another JAB blog"
 BLOG_AUTHOR = "Joe Blogs"
