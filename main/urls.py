@@ -15,6 +15,7 @@ urlpatterns = patterns("",
             "queryset": Post.published_posts().filter(show_in_list_and_rss=True),
             "template_name": "main_page.html",
             "template_object_name": "post",
+            "paginate_by": 10,
         },
         name="main_page"
     ),
