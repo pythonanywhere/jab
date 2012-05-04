@@ -1,8 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.core.urlresolvers import reverse
-from django.views.generic.simple import direct_to_template
 from django.views.generic.create_update import create_object
-from django.views.generic.list_detail import object_detail
+from django.views.generic.list_detail import object_detail, object_list
 
 from jab.main.feeds import LatestEntriesFeed
 from jab.main.models import Post
@@ -11,12 +10,11 @@ from jab.main.models import Post
 urlpatterns = patterns("",
     url(
         r"^$",
-        direct_to_template,
+        object_list,
         {
-            "template": "main_page.html",
-            "extra_context": {
-                "posts": lambda: Post.published_posts().filter(show_in_list_and_rss=True)[:10],
-            }
+            "queryset": Post.published_posts().filter(show_in_list_and_rss=True),
+            "template_name": "main_page.html",
+            "template_object_name": "post",
         },
         name="main_page"
     ),
