@@ -26,8 +26,13 @@ Getting started
 
 ...and you're done!  Log in to the admin GUI using the admin username you
 created during the syncdb, and add Post objects to post; set the status to
-"Published" when you want a post to go live.
+"Published" when you want a post to go live.  Posts `contents` are written
+in [Markdown](http://daringfireball.net/projects/markdown/syntax).
 
 If you want to add something to the header (like, say, an "About" page) then set
 the "Link from header" checkbox to true -- and you might want to also set the
 "Show in list and rss" checkbox to false.
+
+If you want something to appear in a sidebar (the default template puts it on
+the right) then just add a SidebarItem object; its `contents` field is also
+written in Markdown.
