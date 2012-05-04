@@ -14,3 +14,4 @@ ADMINS = (
 )
 
 BLOG_NAME = "Just another JAB blog"
+BLOG_AUTHOR = "Joe Blogs"
