@@ -12,6 +12,10 @@ class Post(models.Model):
 
     contents = models.TextField()
 
+    link_from_header = models.BooleanField(default=False)
+
+    show_in_list_and_rss = models.BooleanField(default=True)
+
 
     @models.permalink
     def get_absolute_url(self):

@@ -45,7 +45,9 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
-              <li class="{% block about_tab_class %}{% endblock %}"><a href="/about">About</a></li>
+              {% for post in posts_in_header %}
+                    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+              {% endfor %}
               {% if blog_author_twitter %}
                 <li><a href="http://www.twitter.com/{{ blog_author_twitter }}">Twitter</a></li>
               {% endif %}

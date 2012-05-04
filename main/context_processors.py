@@ -1,5 +1,8 @@
 from django.conf import settings
 
+from jab.main.models import Post
+
+
 def add_blog_settings(context):
     return {
         'blog_name': getattr(settings, "BLOG_NAME", ""),
@@ -7,4 +10,9 @@ def add_blog_settings(context):
         'blog_author': getattr(settings, "BLOG_AUTHOR", ""),
         'blog_author_email': getattr(settings, "BLOG_AUTHOR_EMAIL", ""),
         'blog_author_twitter': getattr(settings, "BLOG_AUTHOR_TWITTER", ""),
+    }
+
+def add_header_links(context):
+    return {
+        "posts_in_header": lambda: Post.objects.all().filter(link_from_header=True).order_by("-published")
     }

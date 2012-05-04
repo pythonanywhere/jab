@@ -113,6 +113,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "jab.main.context_processors.add_blog_settings",
+    "jab.main.context_processors.add_header_links",
 )
 
 # A sample logging configuration. The only tangible logging

@@ -14,7 +14,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "posts": lambda: Post.objects.all().order_by("-published")
+                "posts": lambda: Post.objects.all().filter(show_in_list_and_rss=True).order_by("-published"),
             }
         },
         name="main_page"
@@ -33,13 +33,5 @@ urlpatterns = patterns("",
         r'^feed/$',
         LatestEntriesFeed(),
         name="feed"
-    ),
-    url(
-        r"^about/$",
-        direct_to_template,
-        {
-            "template": "about.html",
-        },
-        name="about_page"
     ),
 )
