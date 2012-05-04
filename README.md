@@ -25,8 +25,9 @@ Getting started
 * `python manage.py migrate`
 
 ...and you're done!  Log in to the admin GUI using the admin username you
-created during the syncdb, and add Post objects to post.  Posts with dates in
-the future are not displayed in the main view or on the RSS feed, so that's
-a good way to make things draft.  If you want to add something to the header
-(like, say, an "About" page) then set the "Link from header" checkbox to true --
-and you might want to also set the "Show in list and rss" checkbox to false.
+created during the syncdb, and add Post objects to post; set the status to
+"Published" when you want a post to go live.
+
+If you want to add something to the header (like, say, an "About" page) then set
+the "Link from header" checkbox to true -- and you might want to also set the
+"Show in list and rss" checkbox to false.
