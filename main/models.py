@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -34,4 +36,6 @@ class Post(models.Model):
         return ('view_post', [str(self.id)])
 
 
-Post.PUBLISHED_POSTS = Post.objects.filter(status=STATUSES.PUBLISHED).order_by("-publication_date")
+    @classmethod
+    def published_posts(cls):
+        return Post.objects.filter(status=STATUSES.PUBLISHED).filter(publication_date__lte=datetime.now()).order_by("-publication_date")

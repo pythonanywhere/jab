@@ -14,5 +14,5 @@ def add_blog_settings(context):
 
 def add_header_links(context):
     return {
-        "posts_in_header": Post.PUBLISHED_POSTS.filter(link_from_header=True)
+        "posts_in_header": Post.published_posts().filter(link_from_header=True)
     }

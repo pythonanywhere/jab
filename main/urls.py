@@ -15,7 +15,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "posts": lambda: Post.PUBLISHED_POSTS.filter(show_in_list_and_rss=True)[:10],
+                "posts": lambda: Post.published_posts().filter(show_in_list_and_rss=True)[:10],
             }
         },
         name="main_page"
