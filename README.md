@@ -10,15 +10,17 @@ Getting started
 ---------------
 
 * You'll need Django installed, and some way of hosting it -- the default
-  runserver, Apache with mod_wsgi, or (of course) a PythonAnywhere account.
-* You'll also need the south Django migrations package: if you're on
+  runserver, Apache with mod_wsgi, or (of course) a
+  [PythonAnywhere](http://www.pythonanywhere.com) account.
+* You'll also need the
+  [South Django migrations package](http://south.aeracode.org/): if you're on
   PythonAnywhere, you'll have it already. If not, `pip install south`.
 * `git checkout git://github.com/resolversystems/jab.git`
 * `cd jab`
 * `cp local_settings_template.py local_settings.py`
-* Edit local_settings, and change the fields in there to point to an appropriate
-  database etc.  The Twitter and email fields are optional, just miss them out
-  if you don't want to use them.
+* Edit `local_settings.py`, and change the variables in there to point to an
+  appropriate database etc.  The Twitter and email fields are optional, just
+  miss them out if you don't want to use them.
 * `python manage.py syncdb`
 * `python manage.py migrate`
 
