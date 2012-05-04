@@ -20,6 +20,9 @@ class LatestEntriesFeed(Feed):
     
     description_template = 'feed_description.html'
 
+    def author_name(self):
+        return settings.BLOG_AUTHOR
+
     def items(self):
         return Post.objects.order_by('-published')[:20]
 
@@ -28,3 +31,9 @@ class LatestEntriesFeed(Feed):
 
     def item_description(self, item):
         return item.contents
+        
+    def item_author_name(self, item):
+        return item.author.username
+        
+    def item_pubdate(self, item):
+        return item.published
