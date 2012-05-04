@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ blog_name }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ blog_description }}">
-    <meta name="author" content="{{ blog_author }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ blog_name }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ blog_description }}">
+        <meta name="author" content="{{ blog_author }}">
 
-    <link rel="alternate" type="application/rss+xml" title="{{ blog_name }} RSS Feed" href="{% url feed %}" />
+        <link rel="alternate" type="application/rss+xml" title="{{ blog_name }} RSS Feed" href="{% url feed %}" />
 
-    <!-- Le styles -->
-    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/static/jab/styles.css" rel="stylesheet">
+        <!-- Le styles -->
+        <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <link href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="/static/jab/styles.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    </head>
 
-  <body>
+    <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">{{ blog_name }}</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
-              {% for post in posts_in_header %}
-                    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-              {% endfor %}
-              {% if blog_author_twitter %}
-                <li><a href="http://www.twitter.com/{{ blog_author_twitter }}">Twitter</a></li>
-              {% endif %}
-              {% if blog_author_email %}
-                <li><a href="mailto:{{ blog_author_email }}">Email</a></li>
-              {% endif %}
-              <li><a href="{% url feed %}">RSS</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/">{{ blog_name }}</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
+                            {% for post in posts_in_header %}
+                                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                            {% endfor %}
+                            {% if blog_author_twitter %}
+                                <li><a href="http://www.twitter.com/{{ blog_author_twitter }}">Twitter</a></li>
+                            {% endif %}
+                            {% if blog_author_email %}
+                                <li><a href="mailto:{{ blog_author_email }}">Email</a></li>
+                            {% endif %}
+                            <li><a href="{% url feed %}">RSS</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="container">
+        <div class="container">
 
-        {% block body %}
-        {% endblock %}
+            {% block body %}
+            {% endblock %}
 
-        <footer>
-            <hr/>
-            <p>
-                Built with <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.
-                Blog source code available <a href="https://github.com/resolversystems/jab">on GitHub</a>.
-            </p>
-        </footer>
+            <footer>
+                <hr/>
+                <p>
+                    Built with <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.
+                    Blog source code available <a href="https://github.com/resolversystems/jab">on GitHub</a>.
+                </p>
+            </footer>
 
-    </div> <!-- /container -->
+        </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/jquery/jquery-1.7.2.min.js"></script>
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/static/jquery/jquery-1.7.2.min.js"></script>
 
-    {% include "google_analytics.html" %}
+        {% include "google_analytics.html" %}
 
-  </body>
+    </body>
 </html>
