@@ -12,3 +12,5 @@ DATABASES = {
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+BLOG_NAME = "Just another JAB blog"
