@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block home_tab_class %}active{% endblock %}
+
+{% block body %}
+
+    {% for post in posts %}
+
+        {% include "post_include.html" %}
+
+    {% endfor %}
+
+{% endblock %}
