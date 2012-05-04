@@ -11,6 +11,9 @@
 
         <div>
             Posted {{ post.published }}
+            {% if post.author %}
+                by {{ post.author }}
+            {% endif %}
         </div>
 
     </div>
