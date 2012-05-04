@@ -44,8 +44,12 @@
             <ul class="nav">
               <li class="{% block home_tab_class %}{% endblock %}"><a href="/">Home</a></li>
               <li class="{% block about_tab_class %}{% endblock %}"><a href="/about">About</a></li>
-              <li><a href="http://www.twitter.com/pythonanywhere">Twitter</a></li>
-              <li><a href="mailto:developers@pythonanywhere.com">Email</a></li>
+              {% if blog_author_twitter %}
+                <li><a href="http://www.twitter.com/{{ blog_author_twitter }}">Twitter</a></li>
+              {% endif %}
+              {% if blog_author_email %}
+                <li><a href="mailto:{{ blog_author_email }}">Email</a></li>
+              {% endif %}
             </ul>
           </div><!--/.nav-collapse -->
         </div>
