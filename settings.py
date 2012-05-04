@@ -114,6 +114,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "jab.main.context_processors.add_blog_settings",
     "jab.main.context_processors.add_header_links",
+    "jab.main.context_processors.add_sidebar_items",
 )
 
 # A sample logging configuration. The only tangible logging

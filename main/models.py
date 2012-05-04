@@ -39,3 +39,9 @@ class Post(models.Model):
     @classmethod
     def published_posts(cls):
         return Post.objects.filter(status=STATUSES.PUBLISHED).filter(publication_date__lte=datetime.now()).order_by("-publication_date")
+
+
+
+class SidebarItem(models.Model):
+
+    contents = models.TextField()

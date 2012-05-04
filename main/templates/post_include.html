@@ -1,21 +1,14 @@
 {% load markup %}
 
-<div class="row">
+<h2 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
 
-    <div class="span12">
-        <h2 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+<div>
+    {{ post.contents|markdown }}
+</div>
 
-        <div>
-            {{ post.contents|markdown }}
-        </div>
-
-        <div class="post-footer">
-            Posted {{ post.publication_date }}
-            {% if post.author %}
-                by {{ post.author }}
-            {% endif %}
-        </div>
-
-    </div>
-
+<div class="post-footer">
+    Posted {{ post.publication_date }}
+    {% if post.author %}
+        by {{ post.author }}
+    {% endif %}
 </div>

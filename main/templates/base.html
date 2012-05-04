@@ -1,3 +1,4 @@
+{% load markup %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,8 +64,24 @@
 
         <div class="container">
 
-            {% block body %}
-            {% endblock %}
+            <div class="row">
+
+                <div class="span7">
+
+                    {% block body %}
+                    {% endblock %}
+
+                </div>
+
+                <div class="span4 well">
+
+                    {% for item in sidebar_items %}
+                        {{ item.contents|markdown }}
+                    {% endfor %}
+
+                </div>
+
+            </div>
 
             <footer>
                 <hr/>

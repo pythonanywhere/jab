@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from jab.main.models import Post
+from jab.main.models import Post, SidebarItem
 
 
 def add_blog_settings(context):
@@ -12,7 +12,14 @@ def add_blog_settings(context):
         'blog_author_twitter': getattr(settings, "BLOG_AUTHOR_TWITTER", ""),
     }
 
+
 def add_header_links(context):
     return {
         "posts_in_header": Post.published_posts().filter(link_from_header=True)
+    }
+
+
+def add_sidebar_items(context):
+    return {
+        "sidebar_items": SidebarItem.objects.all(),
     }
