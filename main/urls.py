@@ -14,7 +14,7 @@ urlpatterns = patterns("",
         {
             "template": "main_page.html",
             "extra_context": {
-                "posts": lambda: Post.objects.all().filter(show_in_list_and_rss=True).order_by("-published"),
+                "posts": lambda: Post.objects.all().filter(show_in_list_and_rss=True).order_by("-publication_date"),
             }
         },
         name="main_page"

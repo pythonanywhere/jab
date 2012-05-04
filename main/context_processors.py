@@ -14,5 +14,5 @@ def add_blog_settings(context):
 
 def add_header_links(context):
     return {
-        "posts_in_header": lambda: Post.objects.all().filter(link_from_header=True).order_by("-published")
+        "posts_in_header": lambda: Post.objects.all().filter(link_from_header=True).order_by("-publication_date")
     }

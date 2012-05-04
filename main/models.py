@@ -4,7 +4,7 @@ from django.db import models
 
 class Post(models.Model):
 
-    published = models.DateTimeField()
+    publication_date = models.DateTimeField()
 
     author = models.ForeignKey(User, null=True)
 
