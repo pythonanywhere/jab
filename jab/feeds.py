@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
-from jab.main.models import Post
+from blog.jab.models import Post
 
 
 # Keep Chrome happy as per http://stackoverflow.com/a/1081023/32846 -- thanks to

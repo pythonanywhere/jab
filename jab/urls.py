@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 from django.views.generic.create_update import create_object
 from django.views.generic.list_detail import object_detail, object_list
 
-from jab.main.feeds import LatestEntriesFeed
-from jab.main.models import Post
+from blog.jab.feeds import LatestEntriesFeed
+from blog.jab.models import Post
 
 
 urlpatterns = patterns("",

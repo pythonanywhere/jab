@@ -84,7 +84,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'jab.urls'
+ROOT_URLCONF = 'blog.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -101,7 +101,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.markup',
-    'jab.main',
+    'blog.jab',
     'south',
 )
 
@@ -112,9 +112,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
-    "jab.main.context_processors.add_blog_settings",
-    "jab.main.context_processors.add_header_links",
-    "jab.main.context_processors.add_sidebar_items",
+    "blog.jab.context_processors.add_blog_settings",
+    "blog.jab.context_processors.add_header_links",
+    "blog.jab.context_processors.add_sidebar_items",
 )
 
 # A sample logging configuration. The only tangible logging

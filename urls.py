@@ -6,7 +6,7 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-    url(r'^', include('jab.main.urls')),
+    url(r'^', include('blog.jab.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

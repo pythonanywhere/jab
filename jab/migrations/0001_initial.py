@@ -8,14 +8,34 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Post.publication_date'
-        db.add_column('main_post', 'publication_date',
-                      self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2012, 5, 4, 0, 0)),
-                      keep_default=False)
+        # Adding model 'Post'
+        db.create_table('jab_post', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('status', self.gf('django.db.models.fields.IntegerField')(default=0)),
+            ('publication_date', self.gf('django.db.models.fields.DateTimeField')()),
+            ('author', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=1024)),
+            ('contents', self.gf('django.db.models.fields.TextField')()),
+            ('link_from_header', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('show_in_list_and_rss', self.gf('django.db.models.fields.BooleanField')(default=True)),
+        ))
+        db.send_create_signal('jab', ['Post'])
+
+        # Adding model 'SidebarItem'
+        db.create_table('jab_sidebaritem', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('contents', self.gf('django.db.models.fields.TextField')()),
+        ))
+        db.send_create_signal('jab', ['SidebarItem'])
+
 
     def backwards(self, orm):
-        # Deleting field 'Post.publication_date'
-        db.delete_column('main_post', 'publication_date')
+        # Deleting model 'Post'
+        db.delete_table('jab_post')
+
+        # Deleting model 'SidebarItem'
+        db.delete_table('jab_sidebaritem')
+
 
     models = {
         'auth.group': {
@@ -54,17 +74,22 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'main.post': {
+        'jab.post': {
             'Meta': {'object_name': 'Post'},
             'author': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'}),
             'contents': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'link_from_header': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'publication_date': ('django.db.models.fields.DateTimeField', [], {}),
-            'published': ('django.db.models.fields.DateTimeField', [], {}),
             'show_in_list_and_rss': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'status': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '1024'})
+        },
+        'jab.sidebaritem': {
+            'Meta': {'object_name': 'SidebarItem'},
+            'contents': ('django.db.models.fields.TextField', [], {}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         }
     }
 
-    complete_apps = ['main']
+    complete_apps = ['jab']
