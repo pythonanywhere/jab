@@ -1,5 +1,7 @@
 from distutils.core import setup
 
+VERSION = "0.1"
+
 setup(
     name="jab",
     description="Just A Blog",
@@ -9,13 +11,13 @@ setup(
     license="MIT",
 
     url='http://jab.pythonanywhere.com/',
-    version="0.0.1",
-    download_url="http://jab.pythonanywhere.com/static/downloads/jab-0.1.tar.gz",
+    version=VERSION,
+    download_url="http://jab.pythonanywhere.com/static/downloads/jab-%s.tar.gz" % (VERSION,),
 
     packages=["jab",],
 
     install_requires=[
-        'south>=0.7.5'
+        'south>=0.7.5',
         'django>=1.3.0'
     ],
 
