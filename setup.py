@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name="JAB",
+    name="jab",
     description="Just A Blog",
     long_description=open("README").read(),
     author='PythonAnywhere',
