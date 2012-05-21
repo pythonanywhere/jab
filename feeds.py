@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
-from blog.jab.models import Post
+from jab.models import Post
 
 
 # Keep Chrome happy as per http://stackoverflow.com/a/1081023/32846 -- thanks to
@@ -18,7 +18,7 @@ class LatestEntriesFeed(Feed):
     link = "/"
     description = settings.BLOG_DESCRIPTION
 
-    description_template = 'feed_description.html'
+    description_template = 'jab/feed_description.html'
 
     def author_name(self):
         return settings.BLOG_AUTHOR

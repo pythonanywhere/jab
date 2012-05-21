@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from blog.jab.models import Post, SidebarItem
+from jab.models import Post, SidebarItem
 
 
 def add_blog_settings(context):

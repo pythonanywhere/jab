@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.jab.models import Post, SidebarItem
+from jab.models import Post, SidebarItem
 
 
 class PostAdmin(admin.ModelAdmin):

@@ -1,13 +1,37 @@
 from django.conf.urls.defaults import patterns, include, url
-from django.contrib import admin
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.core.urlresolvers import reverse
+from django.views.generic.create_update import create_object
+from django.views.generic.list_detail import object_detail, object_list
 
-admin.autodiscover()
+from jab.feeds import LatestEntriesFeed
+from jab.models import Post
 
 
-urlpatterns = patterns('',
-    url(r'^', include('blog.jab.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+urlpatterns = patterns("",
+    url(
+        r"^$",
+        object_list,
+        {
+            "queryset": Post.published_posts().filter(show_in_list_and_rss=True),
+            "template_name": "jab/main_page.html",
+            "template_object_name": "post",
+            "paginate_by": 10,
+        },
+        name="main_page"
+    ),
+    url(
+        r'^(?P<object_id>\d+)/$',
+        object_detail,
+        {
+            "queryset": Post.objects.all(),
+            "template_name": "jab/post.html",
+            "template_object_name": "post"
+        },
+        name="view_post"
+    ),
+    url(
+        r'^feed/$',
+        LatestEntriesFeed(),
+        name="feed"
+    ),
 )
-
-urlpatterns += staticfiles_urlpatterns()

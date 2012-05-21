@@ -1,6 +1,3 @@
-local_settings.py
-main/templates/google_analytics.html
-
 *.py[co]
 
 # Packages
